@@ -66,7 +66,7 @@ function renderAxes(newXScale, xAxis) {
     else if (chosenXAxis ==="age") {
       var label = "Age (Median):";
     }
-    else {
+    else if (chosenXAxis ==="income") {
         var label = "Household Income (Median)"
     }
   
@@ -74,7 +74,7 @@ function renderAxes(newXScale, xAxis) {
       .attr("class", "tooltip")
       .offset([80, -60])
       .html(function(d) {
-        return (`${d.abbr}<br>${label} ${d[chosenXAxis]}`);
+        return (`${d.state}<br>${label} ${d[chosenXAxis]}`);
       });
   
     circlesGroup.call(toolTip);
@@ -178,7 +178,7 @@ var IncomeLabel = labelsGroup.append("text")
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .classed("axis-text", true)
-    .text("Number of Billboard 500 Hits");
+    .text("Lacks Healthcare (%)");
 
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
